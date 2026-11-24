@@ -4,7 +4,7 @@ import { interest } from "../Data/interest";
 
 export default function About() {
   return (
-    <Section id="about" index="01" eyebrow="About" title="A bit about me">
+    <Section id="about" letter="A" title="About me" meta={["time limit: ∞", "memory limit: 256 MB", "input: curiosity", "output: code"]}>
       <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
         <Reveal className="space-y-5 text-lg leading-relaxed text-zinc-400">
           <p>
@@ -45,7 +45,7 @@ export default function About() {
               <Reveal
                 key={item.name}
                 delay={i * 60}
-                className="group flex items-center gap-3 rounded-xl border border-line bg-panel p-4 transition hover:-translate-y-0.5 hover:border-accent/50"
+                className="group flex items-center gap-3 spot rounded-xl border border-line bg-panel p-4 transition hover:-translate-y-0.5 hover:border-accent/50"
               >
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-accent/10 text-xl text-accent transition group-hover:bg-accent group-hover:text-ink">
                   <item.icon />

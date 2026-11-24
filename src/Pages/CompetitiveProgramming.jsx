@@ -29,9 +29,9 @@ export default function CompetitiveProgramming() {
   return (
     <Section
       id="competitive-programming"
-      index="04"
-      eyebrow="Competitive Programming"
-      title="Contest profiles"
+      letter="D"
+      title="Competitive Programming"
+      meta={["problems: 1000+", "contests: 80+", "judges: 4"]}
       subtitle="1000+ problems solved and 80+ rated contests across four judges."
     >
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -45,7 +45,7 @@ export default function CompetitiveProgramming() {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-panel p-6 transition duration-300 hover:-translate-y-1"
+                    className="spot group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-panel p-6 transition duration-300 hover:-translate-y-1"
                     style={{ "--brand": color }}
                   >
                     <div

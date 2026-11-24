@@ -4,13 +4,13 @@ import { skills } from "../Data/skills";
 
 export default function Skills() {
   return (
-    <Section id="skills" index="05" eyebrow="Skills" title="My toolkit">
+    <Section id="skills" letter="E" title="Skills" meta={["languages: 7", "frameworks: 4", "always learning"]}>
       <div className="grid gap-5 md:grid-cols-2">
         {Object.entries(skills).map(([category, items], i) => (
           <Reveal
             key={category}
             delay={i * 80}
-            className="rounded-2xl border border-line bg-panel p-6 sm:p-7"
+            className="spot rounded-2xl border border-line bg-panel p-6 sm:p-7"
           >
             <div className="mb-5 flex items-baseline justify-between">
               <h3 className="font-display text-lg font-semibold text-white">{category}</h3>

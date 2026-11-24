@@ -50,12 +50,12 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#home" className="group flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent font-display text-sm font-bold text-ink transition-transform group-hover:rotate-6">
-            AK
+          <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent font-mono text-sm font-bold text-ink transition-transform group-hover:-rotate-6">
+            &gt;_
           </span>
-          <span className="font-display text-lg font-semibold text-white">
-            {profile.shortName}
-            <span className="text-accent">.</span>
+          <span className="font-mono text-base font-medium text-white">
+            {profile.shortName.toLowerCase()}
+            <span className="text-accent animate-blink">_</span>
           </span>
         </a>
 
@@ -112,7 +112,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="flex items-baseline gap-3 border-b border-line py-4 font-display text-2xl text-white"
               >
-                <span className="font-mono text-xs text-accent">0{i + 1}</span>
+                <span className="font-mono text-xs text-accent">{String.fromCharCode(65 + i)}.</span>
                 {link.name}
               </a>
             </li>

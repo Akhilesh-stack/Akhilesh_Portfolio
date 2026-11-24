@@ -8,9 +8,9 @@ export default function Projects() {
   return (
     <Section
       id="projects"
-      index="03"
-      eyebrow="Projects"
-      title="Things I've built"
+      letter="C"
+      title="Projects"
+      meta={["tags: full-stack, mern, react", "verdict: shipped"]}
       subtitle="A selection of full stack projects — from DSA learning platforms to role-based MERN apps."
     >
       <div className="grid gap-6 md:grid-cols-2">
@@ -19,7 +19,7 @@ export default function Projects() {
             key={p.name}
             delay={i * 100}
             as="article"
-            className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-panel p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/50 sm:p-8"
+            className="spot group flex flex-col overflow-hidden rounded-2xl border border-line bg-panel p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/50 sm:p-8"
           >
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent opacity-0 transition group-hover:opacity-100" />
 

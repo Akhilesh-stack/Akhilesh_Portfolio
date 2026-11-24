@@ -15,12 +15,12 @@ const educationDetails = [
 
 export default function Education() {
   return (
-    <Section id="education" index="02" eyebrow="Education" title="Where I study">
+    <Section id="education" letter="B" title="Education" meta={["2023 – 2027", "B.Tech CSE", "IET Lucknow"]}>
       <div className="space-y-6">
         {educationDetails.map((edu) => (
           <Reveal
             key={edu.name}
-            className="relative overflow-hidden rounded-2xl border border-line bg-panel p-6 sm:p-8"
+            className="spot overflow-hidden rounded-2xl border border-line bg-panel p-6 sm:p-8"
           >
             <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-accent/10 blur-3xl" />
             <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">

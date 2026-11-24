@@ -11,8 +11,8 @@ const items = [
 
 export default function Contact() {
   return (
-    <Section id="contact" index="06" eyebrow="Contact" title="Let's build something">
-      <Reveal className="relative overflow-hidden rounded-3xl border border-line bg-panel p-8 sm:p-12">
+    <Section id="contact" letter="F" title="Let's talk" meta={["response time: < 24h", "status: open to work"]}>
+      <Reveal className="spot overflow-hidden rounded-3xl border border-line bg-panel p-8 sm:p-12">
         <div className="pointer-events-none absolute -bottom-32 -right-24 h-80 w-80 rounded-full bg-accent/15 blur-3xl" />
         <div className="relative grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div>
@@ -22,7 +22,7 @@ export default function Contact() {
             </p>
             <a
               href={`mailto:${profile.emails[0]}`}
-              className="group mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-medium text-ink transition hover:bg-amber-300"
+              className="group mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 font-medium text-ink transition hover:bg-white"
             >
               Say hello
               <FaArrowRight className="transition-transform group-hover:translate-x-1" />
