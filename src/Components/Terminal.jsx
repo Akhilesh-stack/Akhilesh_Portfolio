@@ -35,14 +35,14 @@ function run(cmd) {
     case "whoami":
       return [
         `${profile.name}`,
-        "B.Tech CSE @ IET Lucknow (2023–27) · CGPA 8.9",
+        "B.Tech CSE @ IET Lucknow (2023–27) · CGPA 8.9/10",
         "competitive programmer + MERN developer",
       ];
     case "about":
       return [
-        "I solve problems for fun (1000+ of them, 80+ contests)",
-        "and build fast, scalable web apps with React & Node.",
-        "Currently exploring Next.js. Open to SDE roles.",
+        "700+ DSA problems solved; global contests vs 25,000+ coders.",
+        "I build AI-integrated, scalable MERN apps (Redis, Socket.IO, Gemini).",
+        "Open to SDE roles.",
       ];
     case "skills":
       return Object.entries(skills).map(
@@ -52,10 +52,11 @@ function run(cmd) {
       return projects.flatMap((p) => [`▸ ${p.name} (${p.date}) — ${p.tagline}`, `  ${p.github}`]);
     case "cp":
       return [
-        "LeetCode    1686  Knight",
-        "CodeChef    1607  3★",
-        "Codeforces  1391  max",
-        "AtCoder      508  8 Kyu",
+        "LeetCode       1611   top 15%",
+        "CodeChef       1600+  3★",
+        "Codeforces     1200+  pupil (max)",
+        "GeeksforGeeks  100+   solved",
+        "best: #591 CodeChef Starters 157",
       ];
     case "contact":
       return [`email     ${profile.emails[0]}`, `linkedin  ${profile.linkedin}`, `github    ${profile.github}`];

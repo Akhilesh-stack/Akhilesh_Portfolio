@@ -1,14 +1,8 @@
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaDownload } from "react-icons/fa";
 import TypewriterText from "../Components/Typewriter";
 import Terminal from "../Components/Terminal";
-import { profile } from "../Data/profile";
-
-const stats = [
-  { value: "1000+", label: "problems solved" },
-  { value: "80+", label: "contests" },
-  { value: "1686", label: "LeetCode peak" },
-  { value: "8.9", label: "CGPA" },
-];
+import CountUp from "../Components/CountUp";
+import { profile, heroStats } from "../Data/profile";
 
 export default function Hero() {
   return (
@@ -50,8 +44,9 @@ export default function Hero() {
           </p>
 
           <p className="mt-5 max-w-lg leading-relaxed text-zinc-400">
-            CSE undergrad at IET Lucknow who writes algorithms for fun and ships MERN apps for real.
-            Try the terminal — it actually works.
+            Final-year CSE at IET Lucknow. 700+ problems solved, AI-integrated MERN apps shipped.
+            Try the terminal — it actually works — or press{" "}
+            <kbd className="rounded border border-line bg-panel px-1.5 py-0.5 font-mono text-xs text-zinc-300">Ctrl K</kbd>.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -91,9 +86,11 @@ export default function Hero() {
           </div>
 
           <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-5 sm:grid-cols-4">
-            {stats.map((s) => (
+            {heroStats.map((s) => (
               <div key={s.label} className="border-l-2 border-accent/60 pl-3">
-                <dd className="font-display text-3xl font-extrabold text-white">{s.value}</dd>
+                <dd className="font-display text-3xl font-extrabold text-white">
+                  <CountUp value={s.value} suffix={s.suffix} decimals={s.decimals ?? 0} />
+                </dd>
                 <dt className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">{s.label}</dt>
               </div>
             ))}

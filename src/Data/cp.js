@@ -1,69 +1,76 @@
-import { SiCodeforces, SiLeetcode, SiCodechef } from "react-icons/si";
-import { FaCode } from "react-icons/fa";
+import { SiCodeforces, SiLeetcode, SiCodechef, SiGeeksforgeeks } from "react-icons/si";
 
-const handles = {
-  codeforces: "At_tiwari078",
-  leetcode: "At5602238",
-  codechef: "a_tiwari087",
-  atcoder: "At_tiw098",
+export const handles = {
+  codeforces: "Akhilesh_23",
+  leetcode: "Akhil2304",
+  codechef: "dpcode_123",
+  gfg: "akhildcle7wm3",
 };
 
-const codeforcesData = async () => {
+/** Static profile data (from resume). Codeforces numbers are refreshed live. */
+export const platforms = [
+  {
+    judge: "Codeforces",
+    icon: SiCodeforces,
+    color: "#60a5fa",
+    handle: handles.codeforces,
+    link: `https://codeforces.com/profile/${handles.codeforces}`,
+    headline: "1200+",
+    headlineLabel: "max rating",
+    badge: "Pupil (max)",
+  },
+  {
+    judge: "LeetCode",
+    icon: SiLeetcode,
+    color: "#fbbf24",
+    handle: handles.leetcode,
+    link: `https://leetcode.com/u/${handles.leetcode}/`,
+    headline: "1611",
+    headlineLabel: "max rating",
+    badge: "Top 15%",
+  },
+  {
+    judge: "CodeChef",
+    icon: SiCodechef,
+    color: "#d97706",
+    handle: handles.codechef,
+    link: `https://www.codechef.com/users/${handles.codechef}`,
+    headline: "1600+",
+    headlineLabel: "max rating",
+    badge: "3 ★",
+  },
+  {
+    judge: "GeeksforGeeks",
+    icon: SiGeeksforgeeks,
+    color: "#22c55e",
+    handle: handles.gfg,
+    link: `https://www.geeksforgeeks.org/profile/${handles.gfg}`,
+    headline: "100+",
+    headlineLabel: "problems solved",
+    badge: "Practice",
+  },
+];
+
+/** Best contest finishes (from resume). */
+export const standings = [
+  { contest: "CodeChef Starters 157 (Div. 4)", judge: "CodeChef", rank: 591, note: "Global" },
+  { contest: "Codeforces Round 1007 (Div. 2)", judge: "Codeforces", rank: 2534, note: "Global" },
+  { contest: "LeetCode Weekly Contest 421", judge: "LeetCode", rank: 3279, note: "AIR 6345" },
+  { contest: "Codeforces Round 1058 (Div. 2)", judge: "Codeforces", rank: 3526, note: "of 25,000+" },
+];
+
+/** Live Codeforces profile + rating history. Returns null on failure. */
+export async function fetchCodeforces() {
   try {
-    const res = await fetch(
-      `https://codeforces.com/api/user.info?handles=${handles.codeforces}&checkHistoricHandles=false`
-    );
-    const data = await res.json();
-    return data.status === "OK" ? data : null;
+    const [infoRes, ratingRes] = await Promise.all([
+      fetch(`https://codeforces.com/api/user.info?handles=${handles.codeforces}`),
+      fetch(`https://codeforces.com/api/user.rating?handle=${handles.codeforces}`),
+    ]);
+    const info = await infoRes.json();
+    const rating = await ratingRes.json();
+    if (info.status !== "OK" || rating.status !== "OK") return null;
+    return { user: info.result[0], history: rating.result };
   } catch {
     return null;
   }
-};
-
-export const initStats = async () => {
-  const cf = await codeforcesData();
-  const cfUser = cf?.result?.[0];
-
-  return [
-    {
-      Judge: "Codeforces",
-      icon: SiCodeforces,
-      handle: handles.codeforces,
-      link: `https://codeforces.com/profile/${handles.codeforces}`,
-      currRank: cfUser?.rank ?? "—",
-      maxRank: cfUser?.maxRank ?? "—",
-      currentRating: cfUser?.rating ?? 1391,
-      maxRating: 1391,
-    },
-    {
-      Judge: "CodeChef",
-      icon: SiCodechef,
-      handle: handles.codechef,
-      link: `https://www.codechef.com/users/${handles.codechef}`,
-      currRank: "3 ★",
-      maxRank: "3 ★",
-      currentRating: 1607,
-      maxRating: 1607,
-    },
-    {
-      Judge: "LeetCode",
-      icon: SiLeetcode,
-      handle: handles.leetcode,
-      link: `https://leetcode.com/u/${handles.leetcode}/`,
-      currRank: "Knight",
-      maxRank: "Knight",
-      currentRating: 1686,
-      maxRating: 1686,
-    },
-    {
-      Judge: "AtCoder",
-      icon: FaCode,
-      handle: handles.atcoder,
-      link: `https://atcoder.jp/users/${handles.atcoder}`,
-      currRank: "8 Kyu",
-      maxRank: "8 Kyu",
-      currentRating: 508,
-      maxRating: 508,
-    },
-  ];
-};
+}

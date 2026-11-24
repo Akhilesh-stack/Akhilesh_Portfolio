@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { TbCommand } from "react-icons/tb";
 import { profile } from "../Data/profile";
 
 export const navLinks = [
@@ -15,9 +16,14 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? window.scrollY / max : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -48,6 +54,11 @@ export default function Navbar() {
           : "border-b border-transparent"
       }`}
     >
+      <div
+        className="absolute inset-x-0 bottom-0 h-px origin-left bg-accent"
+        style={{ transform: `scaleX(${progress})` }}
+        aria-hidden="true"
+      />
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#home" className="group flex items-center gap-2" onClick={() => setOpen(false)}>
           <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent font-mono text-sm font-bold text-ink transition-transform group-hover:-rotate-6">
@@ -78,6 +89,15 @@ export default function Navbar() {
             </li>
           ))}
           <li className="ml-3">
+            <button
+              onClick={() => window.dispatchEvent(new Event("open-palette"))}
+              className="flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-2 font-mono text-xs text-zinc-400 transition hover:border-zinc-500 hover:text-white"
+              aria-label="Open command palette"
+            >
+              <TbCommand /> K
+            </button>
+          </li>
+          <li className="ml-2">
             <a
               href={profile.resume}
               download="Akhilesh_Kumar_Yadav.pdf"

@@ -9,28 +9,24 @@ export default function About() {
         <Reveal className="space-y-5 text-lg leading-relaxed text-zinc-400">
           <p>
             I'm <span className="font-medium text-white">Akhilesh Kumar Yadav</span>, a B.Tech
-            Computer Science student at the{" "}
-            <span className="font-medium text-white">
-              Institute of Engineering and Technology, Lucknow
-            </span>{" "}
-            (2023–2027). I have a strong foundation in competitive programming and a growing
-            passion for full stack web development.
+            Computer Science &amp; Engineering student at the{" "}
+            <span className="font-medium text-white">Institute of Engineering and Technology, Lucknow</span>{" "}
+            (2023–2027), with a CGPA of <span className="text-accent">8.9/10</span>.
           </p>
           <p>
-            In competitive programming I've solved{" "}
-            <span className="text-accent">1000+ problems</span> and taken part in{" "}
-            <span className="text-accent">80+ contests</span> across Codeforces, CodeChef,
-            LeetCode and AtCoder.
+            I have a strong command of Data Structures and Algorithms — I've solved{" "}
+            <span className="text-accent">700+ problems</span> across Codeforces, LeetCode, CodeChef and
+            GeeksforGeeks, and compete regularly in global contests with{" "}
+            <span className="text-accent">25,000+ participants</span>.
           </p>
           <p>
-            On the development side I work with the MERN stack — MongoDB, Express.js, React and
-            Node.js — and I've recently started using Next.js to build SEO-friendly, performant
-            web applications.
+            On the development side I build AI-integrated, scalable web apps with the MERN stack —
+            MongoDB, Express.js, React and Node.js — plus Redis, Socket.IO and the Gemini API.
           </p>
           <p>
-            I enjoy learning by doing, whether that's optimising an algorithm or building a
-            user-centric UI. I'm preparing for software development roles and looking for
-            opportunities to grow, collaborate and contribute to meaningful tech.
+            I enjoy learning by doing, whether that's optimising an algorithm or shaving latency off an
+            API. I'm looking for software development roles where I can grow, collaborate and ship
+            meaningful products.
           </p>
         </Reveal>
 

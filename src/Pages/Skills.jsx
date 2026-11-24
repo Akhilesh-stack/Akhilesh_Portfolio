@@ -4,7 +4,7 @@ import { skills } from "../Data/skills";
 
 export default function Skills() {
   return (
-    <Section id="skills" letter="E" title="Skills" meta={["languages: 7", "frameworks: 4", "always learning"]}>
+    <Section id="skills" letter="E" title="Skills" meta={["languages: 6", "frameworks: 6", "tools: 8", "always learning"]}>
       <div className="grid gap-5 md:grid-cols-2">
         {Object.entries(skills).map(([category, items], i) => (
           <Reveal

@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Marquee from "./Components/Marquee";
+import CommandPalette from "./Components/CommandPalette";
 import Hero from "./Pages/Hero";
 import About from "./Pages/About";
 import Education from "./Pages/Education";
@@ -37,6 +38,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <CommandPalette />
       <main className="overflow-x-clip">
         <Hero />
         <Marquee />

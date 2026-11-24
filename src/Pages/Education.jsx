@@ -8,14 +8,15 @@ const educationDetails = [
     name: "Institute of Engineering and Technology, Lucknow",
     field: "Computer Science & Engineering",
     address: "Sitapur Road, Lucknow, Uttar Pradesh",
-    year: "2023 – 2027",
+    year: "Oct 2023 – Jun 2027",
     grade: "8.9",
+    coursework: ["Data Structures", "Algorithms (DAA)", "DBMS", "Operating Systems", "OOPs", "Computer Networks"],
   },
 ];
 
 export default function Education() {
   return (
-    <Section id="education" letter="B" title="Education" meta={["2023 – 2027", "B.Tech CSE", "IET Lucknow"]}>
+    <Section id="education" letter="B" title="Education" meta={["Oct 2023 – Jun 2027", "B.Tech CSE", "IET Lucknow"]}>
       <div className="space-y-6">
         {educationDetails.map((edu) => (
           <Reveal
@@ -50,6 +51,16 @@ export default function Education() {
                 <p className="font-display text-4xl font-bold text-white">{edu.grade}</p>
                 <p className="text-xs uppercase tracking-wider text-zinc-500">CGPA</p>
               </div>
+            </div>
+            <div className="relative mt-7 border-t border-dashed border-line pt-6">
+              <p className="mb-3 font-mono text-xs uppercase tracking-wider text-zinc-500">Relevant coursework</p>
+              <ul className="flex flex-wrap gap-2">
+                {edu.coursework.map((c) => (
+                  <li key={c} className="rounded-md border border-line bg-ink px-3 py-1.5 text-sm text-zinc-300">
+                    {c}
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
         ))}
